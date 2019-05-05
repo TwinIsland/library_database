@@ -1,0 +1,70 @@
+资源索引：
+
+http://edu.15kankan.com/class/[num]
+[num]: 2045 - 2304
+
+
+资源地址：
+
+https://u19481746.pipipan.com/fs/19481746-371873858
+
+
+请求：
+
+uid: 19481746
+fid: 371873858
+folder_id: 0
+fid: 371873858
+file_chk: 13f77cd17faf8f3f8277c23ec64787f5
+
+https://u19481746.pipipan.com/get_file_url.php?uid=19481746&fid=371873858&folder_id=0&fid=371873858&file_chk=13f77cd17faf8f3f8277c23ec64787f5&mb=0&app=0&verifycode=&rd=0.35028751157396876
+
+
+分析：
+
+https://【资源目录索引】.pipipan.com/get_file_url.php?
+uid=【书籍ID】
+&fid=【书籍Fid】
+&folder_id=0
+&fid=【书籍Fid】
+&file_chk=【check码】
+&mb=0
+&app=0
+&verifycode=【可不要】
+&rd=0.35028751157396876【随机数字可不要】
+
+
+返回值：
+
+{"downurl":"http:\/\/19481746.171.ctc.data.tv002.com\/down\/1d053d678b206eaf374f718aa7ba415b-273538\/%E5%9B%B4%E7%82%89%E5%A4%9C%E8%AF%9D.pdf?cts=dx-f-D182A149A166A86F419f8&ctp=182A149A166A86&ctt=1557075346&limit=1&spd=1300000&ctk=94c168fc456af3c0c8425ae2c273c16c&chk=1d053d678b206eaf374f718aa7ba415b-273538&mtd=1","code":200,"file_size":273538,"confirm_url":"https:\/\/doubleclick.ctfile.com\/?adv&adimage&adimages&mod=cpv&act=confirm&uid=19481746&fid=371873858&t=1557032146&g=90&ad=3&rc=0&size=273538&chk=1d053d678b206eaf374f718aa7ba415b-273538&k=b999bbfcb1686260fee5eb69e0d9783f"}
+
+downurl：即为下载直链
+
+
+测试：
+
+url: https://u1587985.pipipan.com/fs/1587985-372220064
+chk: 70adcfa02fe5ed6630db00927994dcd7
+id: 1587985
+fid: 372220064
+resource_index: u1587985
+
+==> requests link: 
+https://u1587985.pipipan.com/get_file_url.php?uid=1587985&fid=372220064&folder_id=0&fid=372220064&file_chk=70adcfa02fe5ed6630db00927994dcd7&mb=0&app=0
+
+Status: 成功！
+
+==> download url:
+http:\/\/1587985.171.ctc.data.tv002.com\/down\/ca2bd69df13b94a9c725a9508ea95827-103516778\/%E6%8C%87%E5%B0%96%E4%B8%8A%E7%9A%84%E4%B8%AD%E5%9B%BD%EF%BC%9A%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E4%B8%8E%E5%8F%91%E5%B1%95%E4%B8%AD%E5%A4%A7%E5%9B%BD%E7%9A%84%E7%A4%BE%E4%BC%9A%E5%8F%98%E8%BF%81%20%28%E9%A9%AC%E5%8C%96%E8%85%BE%20%E8%91%97%29.zip?cts=dx-f-D182A149A166A86F3290d&ctp=182A149A166A86&ctt=1557075692&limit=1&spd=90000&ctk=e032eecd7ff669c86fd058752ac2df55&chk=ca2bd69df13b94a9c725a9508ea95827-103516778&mtd=1
+
+Status: 成功！
+
+
+XPATH:
+
+url: 【网址获取】
+chk: //*[@id="free_down_link"]
+id: 【网址获取】
+fid: 【网址获取】
+resource_index: 【网址获取】
+
