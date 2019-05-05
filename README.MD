@@ -118,9 +118,48 @@ database_tool = basic.dataBase()
 database_tool.head()
 ```
 
+**Tools:**
 
+1. remove the database
+
+```python
+import basic
+
+# create a tool
+tool = basic.tools()
+
+# remove the current database
+tool.remove_database()
+```
+
+2. solve the direct download link for `诚通网盘`
+
+```python
+import basic
+
+tools = basic.tools()
+crawler = basic.crawlerComponent()
+
+ctPanLink = 'https://u19481746.pipipan.com/fs/19481746-372048608'
+
+directDownloadLink = tools.solveCtLink(test,crawler)
+```
+
+3. short the URL
+
+```python
+import basic
+
+tools = basic.tools()
+crawler = basic.crawlerComponent()
+tooken = '**************' # get the free token from dwz.cn
+originLink = 'https://u19481746.pipipan.com/fs/19481746-372048608'
+
+shortLink = tools.shortLink(originLink,tooken,crawler)
+```
 
 ## Contribute
+
 1. fork
 2. add your book crawler
 3. pull request **WITHOUT** push the database

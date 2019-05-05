@@ -17,6 +17,7 @@ from lxml import etree
 import requests as rq
 import random
 import sqlite3
+import json
 
 
 class crawlerComponent:
@@ -185,4 +186,73 @@ class tools:
             os.remove('library.db')
         except Exception as e:
             print(str(e))
+
+
+
+    def solveCtLink(self,originLink, crawlerComponent):
+
+        '''
+
+        solve the ctPan
+
+        '''
+        info = originLink.split('/')[-1].split('-')
+
+        begin_code = originLink.split('//')[1].split('.')[0]
+        uid = info[0]
+        fid = info[1]
+
+        page = etree.HTML(
+            rq.get(originLink, proxies=crawlerComponent.get_an_ip(), headers=crawlerComponent.get_crawel_header()).content)
+
+        unTreatedUrl = str(page.xpath('//*[@id="free_down_link"]/@onclick')[0][10:-7])
+
+        chk = unTreatedUrl.split('\'')[3]
+
+        resourceUrl = 'https://' + begin_code + '.pipipan.com/get_file_url.php?' \
+                      'uid=' + uid + '' \
+                      '&fid=' + fid + '' \
+                      '&folder_id=0' \
+                      '&fid=' + fid + '' \
+                      '&file_chk=' + chk + '' \
+                      '&mb=0' \
+                      '&app=0'
+
+        #print(resourceUrl)
+
+        link = rq.get(resourceUrl, proxies=crawlerComponent.get_an_ip(),
+                    headers=crawlerComponent.get_crawel_header()).content.decode().split('"')[3].replace('\/', '/')
+
+        if link == 'message':
+            link = 'error'
+
+        return link
+
+    def shortLink(self,original_link,baidu_short_link_token,crawlerComponent):
+        '''
+
+        :param baidu_short_link_token:
+        :return: short link
+
+        '''
+
+        host = 'https://dwz.cn'
+        path = '/admin/v2/create'
+        url = host + path
+
+        content_type = 'application/json'
+
+        token = baidu_short_link_token
+
+        bodys = {'url': original_link}
+
+        headers = {'Content-Type': content_type, 'Token': token}
+
+        response = rq.post(url=url, data=json.dumps(bodys), headers=headers, proxies=crawlerComponent.get_an_ip())
+
+
+        if json.loads(response.text)['Code'] == 0:
+            return json.loads(response.text)['ShortUrl']
+        else:
+            return original_link
 
